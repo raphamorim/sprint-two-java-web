@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<h:messages />
+</h:head> 
+<body>
+<h2>#{msg['formulario.cadastroUser']}</h2>
+<h:form>
+	<table border="1">
+		<tr>
+			<td>#{msg['nome']}</td>
+			<td>
+				<h:inputText value="#{controleUsuario.pessoa.nome}" ></h:inputText>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>#{msg['email']}</td>
+			<td>
+				<h:inputText value="#{controleUsuario.pessoa.email}" >
+				</h:inputText>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>#{msg['dataNascimento']}</td>
+			<td>
+				<h:inputText value="#{controleUsuario.pessoa.dataNascimento}" >
+					<f:convertDateTime pattern="dd/mm/yyyy" />
+				</h:inputText>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>#{msg['login']}</td>
+			<td>
+				<h:inputText value="#{controleUsuario.pessoa.usuario.login}" required="true" requiredMessage="Preenchimento de login é obrigatório!" >
+				</h:inputText>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>#{msg['senha']}</td>
+			<td>
+				<h:inputSecret value="#{controleUsuario.pessoa.usuario.senha}" >
+				<f:validateLength minimum="2" />
+				</h:inputSecret>
+			</td>
+		</tr>				
+		
+		<tr>
+			<td><h:commandButton value="Cadastrar" action="#{controleUsuario.salvar()}" /></td>			
+		</tr>						
+	
+	</table>
+
+</h:form>
+</body>
+</html>
