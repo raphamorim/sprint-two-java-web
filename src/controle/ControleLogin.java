@@ -27,8 +27,6 @@ public class ControleLogin implements Serializable {
 
 	private Date aniversario;
 	
-	private String cpf;
-	
 	@Inject
 	private Usuario usuario;
 	
